@@ -9,11 +9,14 @@ int main()
     InitWindow(windowWidth, windowHeight, "Dapper Dasher");
 
     SetTargetFPS(60);
-    while (WindowShouldClose() == false)
+    while (!WindowShouldClose())
     {
+        // start drawning
         BeginDrawing();
         ClearBackground(BLUE);
 
+        // stop drawning
         EndDrawing();
     }
+    CloseWindow();
 }
