@@ -13,7 +13,7 @@ int main()
     const int height{80};
 
     int posY{windowHeight - height};
-    int velocity{-10};
+    int velocity{0};
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
@@ -21,6 +21,11 @@ int main()
         // start drawning
         BeginDrawing();
         ClearBackground(BLUE);
+
+        if (IsKeyPressed(KEY_SPACE))
+        {
+            velocity -= 10;
+        }
 
         posY += velocity;
 
