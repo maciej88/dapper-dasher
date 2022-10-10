@@ -15,6 +15,9 @@ int main()
     const int width{50};
     const int height{80};
 
+    // is rectangle in air?
+    bool isInAir{};
+
     int posY{windowHeight - height};
     int velocity{0};
 
@@ -30,14 +33,16 @@ int main()
         {
             // rectangle is on ground
             velocity = 0;
+            isInAir = false;
         }
         else
         {
             // rectangle in sky
             velocity += gravity;
+            isInAir = true;
         }
 
-        if (IsKeyPressed(KEY_SPACE))
+        if (IsKeyPressed(KEY_SPACE) && !isInAir)
         {
             velocity -= 10;
         }
