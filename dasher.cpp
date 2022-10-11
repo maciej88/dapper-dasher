@@ -21,7 +21,7 @@ int main()
     scarfyRec.y = 0;
     Vector2 scarfyPos;
     scarfyPos.x = windowWidth/2 - scarfyRec.width/2;
-    scarfyPos.y = windowHeight - scarfyRec.height/2;
+    scarfyPos.y = windowHeight - scarfyRec.height;
 
 
     // is rectangle in air?
