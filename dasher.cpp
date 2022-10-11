@@ -15,6 +15,11 @@ int main()
     const int width{50};
     const int height{80};
 
+    // load scarfy
+    Texture2D scarfy = LoadTexture("textures/scarfy.png");
+    Rectangle scarfyRec;
+    Vector2 scarfyPos;
+
     // is rectangle in air?
     bool isInAir{};
     // jump velocity
