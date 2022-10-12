@@ -9,7 +9,7 @@ int main()
     InitWindow(windowWidth, windowHeight, "Dapper Dasher");
 
     // acceleration for gravity (px/frame)/frame
-    const int gravity{1};
+    const int gravity{1'000};
 
 
     // load scarfy
