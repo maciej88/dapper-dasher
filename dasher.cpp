@@ -26,14 +26,17 @@ int main()
 
     // is rectangle in air?
     bool isInAir{};
-    // jump velocity
-    const int jumpVelocity{-22};
+    // jump velocity(pixels per sec)
+    const int jumpVelocity{-600};
 
     int velocity{0};
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
+        // dekltatime (time since last frame)
+        const float dT{GetFrameTime()};
+
         // start drawning
         BeginDrawing();
         ClearBackground(BLUE);
@@ -48,7 +51,7 @@ int main()
         else
         {
             // rectangle in sky
-            velocity += gravity;
+            velocity += gravity * dT;
             isInAir = true;
         }
 
@@ -59,7 +62,7 @@ int main()
         }
         
         // update position
-        scarfyPos.y += velocity;
+        scarfyPos.y += velocity * dT;
 
         DrawTextureRec(scarfy, scarfyRec, scarfyPos, WHITE);
 
