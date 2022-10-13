@@ -13,11 +13,8 @@ int main()
 
     // load nebula
     Texture2D nebula = LoadTexture("textures/12_nebula_spritesheet.png");
-    Rectangle nebRec;
-    nebRec.width = nebula.width/8;
-    nebRec.height = nebula.height/8;
-    nebRec.x = 0;
-    nebRec.y = 0;
+    Rectangle nebRec{0.0, 0.0, nebula.width/8, nebula.height/8};
+
 
     Vector2 nebPos{windowWidth, windowHeight - nebRec.height};
 
