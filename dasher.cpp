@@ -1,4 +1,14 @@
 #include "raylib.h"
+
+struct AnimData
+{
+    Rectangle rec;
+    Vector2 pos;
+    int frame;
+    float updaterTime;
+    float runningTime;
+};
+
 int main()
 {
     // window dimensions
@@ -33,8 +43,18 @@ int main()
 
     // load scarfy
     Texture2D scarfy = LoadTexture("textures/scarfy.png");
+    AnimData scarfyData;
+    scarfyData.rec.width = scarfy.width/6;
+    scarfyData.rec.height = scarfy.height;
+    scarfyData.rec.x = 0;
+    scarfyData.rec.y = 0;
+    scarfyData.pos.x = windowWidth/2 - scarfyData.rec.width/2;
+    scarfyData.pos.y = windowHeight - scarfyData.rec.height;
+    scarfyData.frame = 0;
+    scarfyData.updaterTime = 1.0 / 12.0;
+    scarfyData.runningTime = 0.0;
+
     Rectangle scarfyRec;
-    scarfyRec.width = scarfy.width/6;
     scarfyRec.height = scarfy.height;
     scarfyRec.x = 0;
     scarfyRec.y = 0;
