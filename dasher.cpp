@@ -44,9 +44,10 @@ int main()
         0.0 // float runTime
     };
 
-    AnimData nebulae[2]{};
+    const int sizeOfNebulae{3};
+    AnimData nebulae[sizeOfNebulae]{};
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < sizeOfNebulae; i++)
     {
         nebulae[i].rec.x = 0.0;
         nebulae[i].rec.y = 0.0;
@@ -155,6 +156,8 @@ int main()
                 nebulae[0].frame = 0;
             }
         }
+        
+        for (int i = 0; i < 3; i++ );
         
         // update nebula 2 animation frame
         nebulae[1].runningTime += dT;
