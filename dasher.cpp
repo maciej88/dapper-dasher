@@ -125,7 +125,7 @@ int main()
 
         // draw the background
         Vector2 bgPos{bgX, 0.0};
-        DrawTextureEx(background, bgPos, 0.0, 1.0, WHITE);
+        DrawTextureEx(background, bgPos, 0.0, 2.0, WHITE);
 
         // perform ground check
         if (isOnGround(scarfyData, windowDimensions[1]))
