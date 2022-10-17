@@ -108,6 +108,8 @@ int main()
 
     int velocity{0};
 
+    Texture2D background = LoadTexture("textures/far-buildings.png");
+
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
@@ -116,7 +118,11 @@ int main()
 
         // start drawning
         BeginDrawing();
-        ClearBackground(BLUE);
+        ClearBackground(WHITE);
+
+        // draw the background
+        Vector2 bgPos{0.0, 0.0};
+        DrawTextureEx(background, bgPos, 0.0, 1.0, WHITE);
 
         // perform ground check
         if (isOnGround(scarfyData, windowDimensions[1]))
@@ -172,5 +178,6 @@ int main()
     }
     UnloadTexture(scarfy);
     UnloadTexture(nebula);
+    UnloadTexture(background);
     CloseWindow();
 }
