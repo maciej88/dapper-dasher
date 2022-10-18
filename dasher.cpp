@@ -111,8 +111,9 @@ int main()
         BeginDrawing();
         ClearBackground(WHITE);
 
+        // scroll background
         bgX -= 20 * dT;
-        if (bgX <= -background.width*2.0f)
+        if (bgX <= -background.width*2)
         {
             bgX = 0.0;
         }
