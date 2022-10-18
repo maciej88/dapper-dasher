@@ -49,25 +49,6 @@ int main()
     // load nebula
     Texture2D nebula = LoadTexture("textures/12_nebula_spritesheet.png");
 
-    // AnimData for nebula
-    AnimData nebData
-    { 
-        {0.0, 0.0, nebula.width/8, nebula.height/8}, // rectangle res
-        {windowDimensions[0], windowDimensions[1] - nebula.height/8}, // vector2 pos
-        0, // int frame
-        1.0/12.0, // float updateTime
-        0 // float runTime
-    };
-
-    AnimData neb2Data
-    {
-        {0.0, 0.0, nebula.width/8, nebula.height/8}, // rectangle res
-        {windowDimensions[0] + 300, windowDimensions[1] - nebula.height/8}, // vector2 pos
-        0, // int frame
-        1.0/16, // float updateTime
-        0.0 // float runTime
-    };
-
     const int sizeOfNebulae{6};
     AnimData nebulae[sizeOfNebulae]{};
 
@@ -132,6 +113,7 @@ int main()
         {
             bgX = 0.0;
         }
+
          // Scroll the midground
         mgX -= 40 * dT;
         if (mgX <= -midground.width*2)
