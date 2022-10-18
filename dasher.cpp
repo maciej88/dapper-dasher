@@ -56,13 +56,14 @@ int main()
     {
         nebulae[i].rec.x = 0.0;
         nebulae[i].rec.y = 0.0;
-        nebulae[i].rec.width = nebula.width/8;
-        nebulae[i].rec.height = nebula.height/8;
-        nebulae[i].pos.y = windowDimensions[1] - nebula.height/8;
+        nebulae[i].rec.width = static_cast<float>(nebula.width / 8.0f);
+        nebulae[i].rec.height = static_cast<float>(nebula.height / 8.0f);
+        nebulae[i].pos.y = windowDimensions[1] - static_cast<float>(nebula.height / 8.0f);
         nebulae[i].frame = 0;
         nebulae[i].runningTime = 0.0;
         nebulae[i].updateTime = 0.0;
-        nebulae[i].pos.x = windowDimensions[0] + 1 * 300;
+
+        nebulae[i].pos.x = windowDimensions[0] + i * 300.0f;
     }
 
     float finishLine{ nebulae[sizeOfNebulae - 1].pos.x };
@@ -73,21 +74,21 @@ int main()
     // load scarfy
     Texture2D scarfy = LoadTexture("textures/scarfy.png");
     AnimData scarfyData;
-    scarfyData.rec.width = scarfy.width/6;
+    scarfyData.rec.width = scarfy.width/6.0f;
     scarfyData.rec.height = scarfy.height;
     scarfyData.rec.x = 0;
     scarfyData.rec.y = 0;
-    scarfyData.pos.x = windowDimensions[0]/2 - scarfyData.rec.width/2;
+    scarfyData.pos.x = windowDimensions[0]/2.0f - scarfyData.rec.width/2.0f;
     scarfyData.pos.y = windowDimensions[1] - scarfyData.rec.height;
     scarfyData.frame = 0;
-    scarfyData.updateTime = 1.0 / 12.0;
+    scarfyData.updateTime = 1.0f / 12.0f;
     scarfyData.runningTime = 0.0;
 
 
     // is rectangle in air?
     bool isInAir{};
     // jump velocity(pixels per sec)
-    const int jumpVelocity{-600};
+    const int jumpVel{-600};
 
     int velocity{0};
 
@@ -111,12 +112,12 @@ int main()
         ClearBackground(WHITE);
 
         bgX -= 20 * dT;
-        if (bgX <= -background.width*2)
+        if (bgX <= -background.width*2.0f)
         {
             bgX = 0.0;
         }
 
-         // Scroll the midground
+        // Scroll the midground
         mgX -= 40 * dT;
         if (mgX <= -midground.width*2)
         {
@@ -167,13 +168,13 @@ int main()
         // jump
         if (IsKeyPressed(KEY_SPACE) && !isInAir)
         {
-            velocity += jumpVelocity;
+            velocity += jumpVel;
         }
 
         for (int i = 0; i < sizeOfNebulae; i++)
         {
             // each nebula position update
-            nebulae[i].pos.x = nebVel * dT;
+            nebulae[i].pos.x += nebVel * dT;
         }
 
         // update finishLine
