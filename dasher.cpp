@@ -63,7 +63,7 @@ int main()
         nebulae[i].runningTime = 0.0;
         nebulae[i].updateTime = 0.0;
 
-        nebulae[i].pos.x = windowDimensions[0] + i * 300.0f;
+        nebulae[i].pos.x = windowDimensions[0] + i * 800.0f;
     }
 
     float finishLine{ nebulae[sizeOfNebulae - 1].pos.x };
@@ -176,6 +176,7 @@ int main()
         {
             // each nebula position update
             nebulae[i].pos.x += nebVel * dT;
+            
         }
 
         // update finishLine
@@ -229,7 +230,7 @@ int main()
             DrawText("You Win!", windowDimensions[0]/4, windowDimensions[1]/2, 40, GREEN);
         }
         else
-        {
+        {   
             for (int i = 0; i < sizeOfNebulae; i++)
             {
                 // draw nebula
