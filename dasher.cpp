@@ -198,7 +198,7 @@ int main()
 
         for (AnimData nebula : nebulae)
         {
-            float pad{20};
+            float pad{50};
             Rectangle nebRec{
                 nebula.pos.x + pad,
                 nebula.pos.y + pad,
@@ -222,6 +222,11 @@ int main()
         if (collision)
         {
             // lose the game
+            DrawText("Game Over!", windowDimensions[0]/4, windowDimensions[1]/2, 40, RED);
+        }
+        else if (scarfyData.pos.x >= finishLine)
+        {
+            DrawText("You Win!", windowDimensions[0]/4, windowDimensions[1]/2, 40, GREEN);
         }
         else
         {
